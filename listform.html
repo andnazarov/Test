@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6">
+            <div class="list-group">
+        
+                <% Пока Выборка.Следующий() Цикл %>
+                
+                <a href="#" name="listItem" id="<%= XMLСтрока(Выборка.Ссылка) %>" class="list-group-item list-group-item-action">
+                    <h5 class="list-group-item-heading"><%= XMLСтрока(Выборка.Наименование) %></h5>
+                    <p class="list-group-item-text"><%= СтрШаблон("ИНН: %1, КПП: %2", Выборка.ИНН, Выборка.КПП) %></p>
+                </a>
+
+                <% КонецЦикла; %>
+                
+                <!-- <a href="#" name="listItem" id="item1" class="list-group-item list-group-item-action active">
+                    <h5 class="list-group-item-heading">Элемент 1</h5>
+                    <p class="list-group-item-text">При клике на этот элемент появится модально окно с элементами
+                        управления. В дальнейшем результат будет считан и отправлен на сервер.</p>
+                </a>
+                <a href="#" name="listItem" id="item2" class="list-group-item list-group-item-action">
+                    <h5 class="list-group-item-heading">Элемент 2</h5>
+                    <p class="list-group-item-text">При клике на этот элемент появится модально окно с элементами
+                        управления. В дальнейшем результат будет считан и отправлен на сервер.</p>
+                </a>
+                <a href="#" name="listItem" id="item3" class="list-group-item list-group-item-action">
+                    <h5 class="list-group-item-heading">Элемент 3</h5>
+                    <p class="list-group-item-text">При клике на этот элемент появится модально окно с элементами
+                        управления. В дальнейшем результат будет считан и отправлен на сервер.</p>
+                </a> -->
+            </div>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+
+    </div>
+    <!--/row-->
+</div>
