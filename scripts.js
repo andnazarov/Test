@@ -7,7 +7,8 @@ jQuery(document).ready(function ($) {
     
     //$('#content').clear();
     
-    $('#content').load('navbar.ejs');
+    //$('#content').load('navbar.ejs');
+    $('#content').append('<p>тест</p>');
     
 
 });
