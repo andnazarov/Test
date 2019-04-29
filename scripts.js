@@ -6,6 +6,9 @@ jQuery(document).ready(function ($) {
     });
     
     $('#content').clear();
+    
+    $('#content').reload();
+    
 
 });
 
