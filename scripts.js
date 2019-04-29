@@ -5,11 +5,11 @@ jQuery(document).ready(function ($) {
         $('#exampleModal').modal('show');
     });
 
-    //$('#content').clear();
-
     $('#navbar').ready(function (event) {
         $('#navbar').empty();
-        //var template = $this.get("navbar.ejs");
+        var template = $.get("navbar.ejs");
+        var ht = ejs.render(template);
+        console.log(ht);
         $('#navbar').load('navbar.ejs');
     });
 
