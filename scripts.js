@@ -8,7 +8,9 @@ jQuery(document).ready(function ($) {
     //$('#content').clear();
     
     //$('#content').load('navbar.ejs');
-    $('#content').append('<p>тест</p>');
+    $('#content').on('load', function() {
+        this.append('<p>тест</p>');
+    });
     
 
 });
