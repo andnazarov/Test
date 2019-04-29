@@ -5,9 +5,9 @@ jQuery(document).ready(function ($) {
         $('#exampleModal').modal('show');
     });
     
-    $('#content').clear();
+    //$('#content').clear();
     
-    $('#content').reload();
+    $('#content').load('navbar.ejs');
     
 
 });
