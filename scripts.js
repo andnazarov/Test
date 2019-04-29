@@ -5,6 +5,7 @@ jQuery(document).ready(function ($) {
         $('#exampleModal').modal('show');
     });
     
-    this.append('test');
+    $('#content').clear();
 
 });
+
