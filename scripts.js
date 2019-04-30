@@ -1,8 +1,6 @@
 jQuery(document).ready(function ($) {
 
-    $('[name="listItem"]').click(function (event) {
-        $('#exampleModal').modal('show');
-    });
+    
 
     
     $.get("navbar.html", function(data) {
@@ -17,6 +15,9 @@ jQuery(document).ready(function ($) {
     $.get("listform.html", function(data) {
         var ht = ejs.render(data, {itemList: itemList});
         $('#listform').html(ht);
+        $('[name="listItem"]').click(function (event) {
+            $('#exampleModal').modal('show');
+        });
     });
 
 });
