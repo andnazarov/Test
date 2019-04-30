@@ -8,9 +8,8 @@ jQuery(document).ready(function ($) {
     //$('#navbar').ready(function (event) {
         //$('#navbar').empty();
         $.get("navbar.ejs", function(data){
-            alert(data);
             var ht = ejs.render(data, {navItem: "Привет!"});
-            $('#navbar1').load(ht);
+            $('#navbar1').html(ht);
         });
         //var template = $('#navbar-template').innerHTML;
         
