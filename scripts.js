@@ -11,7 +11,7 @@ jQuery(document).ready(function ($) {
         //var template = $('#navbar-template').innerHTML;
         
         var ht = ejs.render(template, {navItem: "Привет!"});
-        $('#navbar').load(ht);
+        $('#navbar1').load(ht);
     //});
 
     //$('#content').ready(function (event) {
