@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
 
     //$('#navbar').ready(function (event) {
         //$('#navbar').empty();
-        $.get("navbar.ejs", function(data){
+        $.get("navbar.html", function(data){
             var ht = ejs.render(data, {navItem: "Привет!"});
             $('#navbar1').html(ht);
         });
