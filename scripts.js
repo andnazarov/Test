@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
         //var template = $.get("navbar.ejs");
         var template = $('#navbar-template').innerHTML;
         //alert(template);
-        var ht = ejs.render(template);
+        var ht = ejs.render(template, {navItem: "Привет!"});
         $('#navbar').load(ht);
     });
 
