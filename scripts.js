@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
     
     $.get("navbar.html", function(data) {
         var ht = ejs.render(data, {navItem: "Привет!"});
-        $('#navbar1').html(ht);
+        $('#navbar').html(ht);
     });
        
     var itemList = [
