@@ -9,9 +9,9 @@ jQuery(document).ready(function ($) {
         $('#navbar').empty();
         //var template = $.get("navbar.ejs");
         var template = $('#navbar-template').innerHTML;
-        alert(template);
+        //alert(template);
         var ht = ejs.render(template);
-        $('#navbar').load('navbar.ejs');
+        $('#navbar').load(ht);
     });
 
     
