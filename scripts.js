@@ -7,7 +7,8 @@ jQuery(document).ready(function ($) {
 
     $('#navbar').ready(function (event) {
         $('#navbar').empty();
-        var template = $.get("navbar.ejs");
+        //var template = $.get("navbar.ejs");
+        var template = $('#navbar-template').innerHTML;
         var ht = ejs.render(template);
         console.log(ht);
         $('#navbar').load('navbar.ejs');
