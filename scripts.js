@@ -14,7 +14,7 @@ jQuery(document).ready(function ($) {
         {id: 'item1', caption: 'Тест 1', description: 'Дополнительное описание тест 1', isActive: 'active'},
         ];
     $.get("listform.html", function(data) {
-        var ht = ejs.render(data, itemList);
+        var ht = ejs.render(data, {itemList: itemList});
         $('#listform').html(ht);
     });
 
