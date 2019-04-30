@@ -7,9 +7,9 @@ jQuery(document).ready(function ($) {
 
     $('#navbar').ready(function (event) {
         $('#navbar').empty();
-        //var template = $.get("navbar.ejs");
-        var template = $('#navbar-template').innerHTML;
-        //alert(template);
+        var template = $.get("navbar.ejs");
+        //var template = $('#navbar-template').innerHTML;
+        alert(template);
         var ht = ejs.render(template, {navItem: "Привет!"});
         $('#navbar').load(ht);
     });
