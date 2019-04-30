@@ -7,11 +7,13 @@ jQuery(document).ready(function ($) {
 
     //$('#navbar').ready(function (event) {
         //$('#navbar').empty();
-        var template = $.get("navbar.ejs");
+        $.get("navbar.ejs", function(data){
+            var ht = ejs.render(data, {navItem: "Привет!"});
+            $('#navbar1').load(ht);
+        });
         //var template = $('#navbar-template').innerHTML;
         
-        var ht = ejs.render(template, {navItem: "Привет!"});
-        $('#navbar1').load(ht);
+        
     //});
 
     //$('#content').ready(function (event) {
