@@ -1,26 +1,22 @@
 jQuery(document).ready(function ($) {
 
     $('[name="listItem"]').click(function (event) {
-        //alert(event.delegateTarget.id);
         $('#exampleModal').modal('show');
     });
 
-    //$('#navbar').ready(function (event) {
-        //$('#navbar').empty();
-        $.get("navbar.html", function(data){
-            var ht = ejs.render(data, {navItem: "Привет!"});
-            $('#navbar1').html(ht);
-        });
-        //var template = $('#navbar-template').innerHTML;
-        
-        
-    //});
-
-    //$('#content').ready(function (event) {
-    //    $('#content').empty();
-    //    var template = $.get("navbar.ejs");
-    //    $('#content').html()
-    //});
+    
+    $.get("navbar.html", function(data) {
+        var ht = ejs.render(data, {navItem: "Привет!"});
+        $('#navbar1').html(ht);
+    });
+       
+    var itemList = [
+        {id: 'item1', caption: 'Тест 1', description: 'Дополнительное описание тест 1', isActive: 'active'},
+        ];
+    $.get("listform.html", function(data) {
+        var ht = ejs.render(data, itemList);
+        $('#listform').html(ht);
+    });
 
 });
 
