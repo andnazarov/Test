@@ -5,7 +5,7 @@
         </div>
         <div class="col-sm-6">
             <div class="list-group">
-                <% listItems.forEach(function(item, i, itemList) { %>
+                <% itemList.forEach(function(item, i, itemList) { %>
                 <a href="#" name="listItem" id="<%= item.id %>" class="list-group-item list-group-item-action <%= item.isActive %>">
                     <h5 class="list-group-item-heading"><%= item.caption %></h5>
                     <p class="list-group-item-text"><%= item.description %></p>
