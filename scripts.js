@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
     });
 
     //$('#navbar').ready(function (event) {
-        $('#navbar').empty();
+        //$('#navbar').empty();
         var template = $.get("navbar.ejs");
         //var template = $('#navbar-template').innerHTML;
         
