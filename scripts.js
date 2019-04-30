@@ -12,6 +12,7 @@ jQuery(document).ready(function ($) {
        
     var itemList = [
         {id: 'item1', caption: 'Тест 1', description: 'Дополнительное описание тест 1', isActive: 'active'},
+        {id: 'item2', caption: 'Тест 2', description: 'Дополнительное описание тест 2', isActive: ''}
         ];
     $.get("listform.html", function(data) {
         var ht = ejs.render(data, {itemList: itemList});
