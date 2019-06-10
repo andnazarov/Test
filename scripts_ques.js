@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
             var ht = ejs.render(data, { itemList: itemList, divName: "Раздел 01" });
             $('#listform').html(ht);
             $('[name="listItem"]').click(function (event) {
-                //$('#exampleModal').modal('show');
+                
                 alert(this);
             });
         });
