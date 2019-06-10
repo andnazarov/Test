@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
     
     $.get("questions01.json", function (datajson) {
-        console.log(datajson);
         var itemList = datajson;//JSON.parse(datajson);
         
     
