@@ -9,9 +9,9 @@ jQuery(document).ready(function ($) {
     });
     
     $.get("divisions.json", function (datajson) {
-    
+        console.log(datajson);
         var itemList = JSON.parse(datajson);
-        console.log(itemList);
+        
     
         $.get("listform.html", function (data) {
             var ht = ejs.render(data, { itemList: itemList });
