@@ -8,8 +8,8 @@
             <div class="list-group">
                 <% itemList.forEach(function(item, i, itemList) { %>
                 <a href="<%= 'question.html?id=' + item.id %>" name="listItem" id="<%= 'item' + item.id %>" class="list-group-item list-group-item-action <%= item.isActive %>">
-                    <h5 class="list-group-item-heading"><%= item.id %></h5>
-                    <p class="list-group-item-text"><%= item.text %></p>
+                    <h5 class="list-group-item-heading"><%= item.number %></h5>
+                    <p class="list-group-item-text"><%= item.caption %></p>
                 </a>
                 <% }); %>
             </div>
