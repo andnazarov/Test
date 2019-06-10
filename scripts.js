@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
     
     $.get("divisions.json", function (datajson) {
         console.log(datajson);
-        var itemList = JSON.parse(datajson);
+        var itemList = {};//JSON.parse(datajson);
         
     
         $.get("listform.html", function (data) {
