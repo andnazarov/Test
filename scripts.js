@@ -12,7 +12,13 @@ jQuery(document).ready(function ($) {
     
         itemList = JSON.parse(datajson);
     
-    
+        $.get("listform.html", function (data) {
+            var ht = ejs.render(data, { itemList: itemList });
+            $('#listform').html(ht);
+            $('[name="listItem"]').click(function (event) {
+                $('#exampleModal').modal('show');
+            });
+        });
     
     });
 
@@ -21,13 +27,7 @@ jQuery(document).ready(function ($) {
     //    { id: 'item2', caption: 'Тест 2', description: 'Дополнительное описание тест 2', isActive: '' }
     //];
     
-    $.get("listform.html", function (data) {
-        var ht = ejs.render(data, { itemList: itemList });
-        $('#listform').html(ht);
-        $('[name="listItem"]').click(function (event) {
-            $('#exampleModal').modal('show');
-        });
-    });
+    
 
 });
 
