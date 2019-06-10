@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
         
     
         $.get("questions_list.html", function (data) {
-            var ht = ejs.render(data, { itemList: itemList; divName: "Раздел 01" });
+            var ht = ejs.render(data, { itemList: itemList, divName: "Раздел 01" });
             $('#listform').html(ht);
             $('[name="listItem"]').click(function (event) {
                 //$('#exampleModal').modal('show');
