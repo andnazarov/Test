@@ -3,6 +3,7 @@ jQuery(document).ready(function ($) {
     $.get("questions01.json", function (datajson) {
         var itemList = datajson;//JSON.parse(datajson);
         
+        console.log(itemList);
     
         $.get("questions_list.html", function (data) {
             var divName = $_GET("div");
