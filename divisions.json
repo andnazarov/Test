@@ -1,0 +1,4 @@
+[
+  { "id": "item", "caption": "Раздел 01", "description": "Дополнительное описание тест 1", "isActive": "active" },
+  { "id": "item2", "caption": "Раздел 02", "description": "Дополнительное описание тест 2", "isActive": "" }
+]

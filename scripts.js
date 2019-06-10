@@ -1,14 +1,19 @@
 jQuery(document).ready(function ($) {
 
-
-
-
     $.get("navbar.html", function (template) {
         $.get("http://localhost/DemoSSL/hs/jqmob/navbar"), function (datajson, template) {
             var data = JSON.parse(datajson);
             var ht = ejs.render(template, { navItemList: data });
             $('#navbar').html(ht);
         }
+    });
+    
+    $.get("divisions.json", function (datajson) {
+    
+        itemList = JSON.parse(datajson);
+    
+    
+    
     });
 
     var itemList = [
