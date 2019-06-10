@@ -10,7 +10,7 @@ jQuery(document).ready(function ($) {
             $('#listform').html(ht);
             $('[name="listItem"]').click(function (event) {
                 //$('#exampleModal').modal('show');
-                alert(this);
+                //alert(this);
             });
         });
     
