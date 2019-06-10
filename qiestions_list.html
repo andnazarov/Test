@@ -4,6 +4,7 @@
 
         </div>
         <div class="col-sm-6">
+            <div><%= divName %></div>
             <div class="list-group">
                 <% itemList.forEach(function(item, i, itemList) { %>
                 <a href="<%= 'questions.html?div=' + item.id %>" name="listItem" id="<%= 'item' + item.id %>" class="list-group-item list-group-item-action <%= item.isActive %>">
