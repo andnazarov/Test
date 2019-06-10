@@ -9,7 +9,8 @@ jQuery(document).ready(function ($) {
             var ht = ejs.render(data, { itemList: itemList });
             $('#listform').html(ht);
             $('[name="listItem"]').click(function (event) {
-                $('#exampleModal').modal('show');
+                //$('#exampleModal').modal('show');
+                alert(this);
             });
         });
     
