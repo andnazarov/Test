@@ -35,10 +35,10 @@
     "isCorrect":"false"},
     {"number":"2";
     "text":"Текст ответа 2";
-    "isCorrect":"true"},
+    "isCorrect":"false"},
     {"number":"3";
     "text":"Текст ответа 3";
-    "isCorrect":"false"}
+    "isCorrect":"true"}
     ]
 }
 ]
