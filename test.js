@@ -19,9 +19,12 @@ $("*").on("pagecreate", function(event) {
     });
 
     divsList.listview("refresh");
-  });
-});
 
-$("#divsList > li").on("click", function(ebent) {
-  alert(event);
+    // Обработка нажатия на раздел.
+    $("#divsList li").click(function() {
+      var divId = this.id.replace("div", "");
+      var index = Number.parseInt(divId);
+      console.log(itemList[index]);
+    });
+  });
 });
