@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     $.get("divisions.json", function (datajson) {
         var itemList = datajson;//JSON.parse(datajson);
         
-        var divsList = $("divsList");
+        var divsList = $("#divsList");
         
         itemList.forEach(function(item, i, itemList) {
            
