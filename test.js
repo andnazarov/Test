@@ -17,3 +17,8 @@ $( "*" ).on( "pagecreate", function( event ) {
     });
 
 });
+
+$("#divsList > li").on("click", function(ebent) {
+    alert(event);
+
+});
