@@ -25,7 +25,7 @@ $( "*" ).on( "pagecreate", function( event ) {
         
         itemList.forEach(function(item, i, itemList) {
            
-           var element = '<li id="div' + item.id + '"><a href="#">' + item.id + '. ' + item.caption + '<span class="ui-li-count">12</span></a></li>';
+           var element = '<li id="div' + item.id + '"><a href="#">' + item.id + '. ' + item.caption + '<span class="ui-li-count">' + item.questios_count + '</span></a></li>';
            divsList.append(element);
             
         });
