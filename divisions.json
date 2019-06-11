@@ -1,6 +1,9 @@
 [
-  { "id": "01", "caption": "Раздел 01", "description": "Дополнительное описание тест 1",
-  "questions":
+  { "id": "01",
+     "caption": "Раздел 01",
+     "description": "Дополнительное описание тест 1",
+     "questions_count": "3",
+     "questions":
   
   [
 				{"number":"1", "caption":"Текст вопроса 1",
@@ -50,8 +53,10 @@
   },
   
   
-  { "id": "02", "caption": "Раздел 02", "description": "Дополнительное описание тест 2", 
-  
+  { "id": "02",
+  "caption": "Раздел 02",
+  "description": "Дополнительное описание тест 2", 
+  "questions_count": "0",
   "questions":
   [
   
