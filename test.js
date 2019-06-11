@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+/*jQuery(document).ready(function ($) {
     
     $.get("divisions.json", function (datajson) {
         var itemList = datajson;//JSON.parse(datajson);
@@ -14,9 +14,9 @@ jQuery(document).ready(function ($) {
     
     });
     
-});
+});*/
 
-/*$( "*" ).on( "pagecreate", function( event ) {
+$( "*" ).on( "pagecreate", function( event ) {
 
     $.get("divisions.json", function (datajson) {
         var itemList = datajson;//JSON.parse(datajson);
@@ -34,4 +34,4 @@ jQuery(document).ready(function ($) {
     
     });
 
-});*/
+});
