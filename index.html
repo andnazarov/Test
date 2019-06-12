@@ -4,6 +4,7 @@
     <title>Тест</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow">
     <link
       rel="stylesheet"
       href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
@@ -24,14 +25,11 @@
 
       <div role="main" class="ui-content">
         <ul data-role="listview" data-inset="true" id="divsList"></ul>
-        <!--<p>I'm first in the source order so I'm shown as the page.</p> 	
-	  <p>View internal page called <a href="#bar">bar</a></p> 	
-	  -->
       </div>
       <!-- /content -->
 
       <div data-role="footer">
-        <h4>Page Footer</h4>
+        <h4>Футер страницы</h4>
       </div>
       <!-- /footer -->
     </div>
@@ -39,43 +37,48 @@
 
     <!-- Start of second page -->
     <div data-role="page" id="questions_page">
-      <div data-role="header">
-        <h1>Вопрос</h1>
+      <div id = "questions_page_header" data-role="header">
+        <h1>Раздел Х</h1>
       </div>
       <!-- /header -->
 
       <div role="main" class="ui-content">
         
-        <ul data-role="listview" data-inset="true">
-              <li><a href="#">
-                  
-              <h2>Broken Bells</h2>
-              <p>Broken Bells</p></a>
-              </li>
-              <li><a href="#">
-                  
-              <h2>Warning</h2>
-              <p>Hot Chip</p></a>
-              </li>
-              <li><a href="#">
-                  
-              <h2>Wolfgang Amadeus Phoenix</h2>
-              <p>Phoenix</p></a>
-              </li>
-          </ul>
+        <ul data-role="listview" data-inset="true" id="questionsList">
+
+        </ul>
         
-        <p>
-          I'm the second in the source order so I'm hidden when the page loads.
-          I'm just shown if a link that references my id is beeing clicked.
-        </p>
-        <p><a href="#foo">Back to foo</a></p>
+        <p><a href="#divisions_page">Вернуться в разделы</a></p>
       </div>
       <!-- /content -->
 
       <div data-role="footer">
-        <h4>Page Footer</h4>
+        <h4>Футер страницы</h4>
       </div>
       <!-- /footer -->
+
+
+      <!-- Начало третьей страницы -->
+    <div data-role="page" id="question_page">
+        <div id = "question_page_header" data-role="header">
+          <h1>Вопрос Х</h1>
+        </div>
+        <!-- /header -->
+  
+        <div role="main" class="ui-content">
+          
+          <ul data-role="listview" data-inset="true" id="questionsList">
+  
+          </ul>
+          
+        </div>
+        <!-- /content -->
+  
+        <div data-role="footer">
+          <h4>Футер страницы</h4>
+        </div>
+        <!-- /footer -->
+
     </div>
     <!-- /page -->
   </body>
