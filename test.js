@@ -23,7 +23,8 @@ $("*").on("pagecreate", function(event) {
     // Обработка нажатия на раздел.
     $("#divsList li").click(function() {
       var divId = this.id.replace("div", "");
-      var index = Number.parseInt(divId);
+      console.log(divId);
+      var index = Number.parseInt(divId) - 1;
       console.log(itemList[index]);
     });
   });
