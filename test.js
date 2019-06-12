@@ -24,8 +24,8 @@ function divisions_page_create(event) {
         ". " +
         item.caption +
         '<span class="ui-li-count">' +
-        item.questions_count +
-        "</span></a></li>";
+        //item.questions_count +
+        '</span></a></li>';
       divsList.append(element);
     });
 
