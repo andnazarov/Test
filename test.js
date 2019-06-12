@@ -24,8 +24,8 @@ function divisions_page_create(event) {
         ". " +
         item.caption +
         '<span class="ui-li-count">' +
-        //item.questions_count +
-        '</span></a></li>';
+        item.questions.length.toString() +
+        "</span></a></li>";
       divsList.append(element);
     });
 
@@ -68,8 +68,10 @@ function questions_page_show(event) {
         '<li id="ques' +
         item.number +
         '"><a href="#"><p>' +
+        item.number +
+        ". " +
         item.caption +
-        '</p></a></li>';
+        "</p></a></li>";
       questionsList.append(element);
     });
     questionsList.listview("refresh");
