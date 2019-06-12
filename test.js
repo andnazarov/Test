@@ -67,7 +67,7 @@ function questions_page_show(event) {
       var element =
         '<li id="ques' +
         item.number +
-        '"><a href="#"><p>' +
+        '"><a href="#"><p class="ui-li-desc">' +
         item.number +
         ". " +
         item.caption +
