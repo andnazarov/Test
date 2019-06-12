@@ -16,7 +16,7 @@
   </head>
   <body>
     <!-- Start of first page -->
-    <div data-role="page" id="foo">
+    <div data-role="page" id="divisions_page">
       <div data-role="header">
         <h1>Разделы</h1>
       </div>
@@ -38,13 +38,32 @@
     <!-- /page -->
 
     <!-- Start of second page -->
-    <div data-role="page" id="bar">
+    <div data-role="page" id="questions_page">
       <div data-role="header">
         <h1>Вопрос</h1>
       </div>
       <!-- /header -->
 
       <div role="main" class="ui-content">
+        
+        <ul data-role="listview" data-inset="true">
+              <li><a href="#">
+                  
+              <h2>Broken Bells</h2>
+              <p>Broken Bells</p></a>
+              </li>
+              <li><a href="#">
+                  
+              <h2>Warning</h2>
+              <p>Hot Chip</p></a>
+              </li>
+              <li><a href="#">
+                  
+              <h2>Wolfgang Amadeus Phoenix</h2>
+              <p>Phoenix</p></a>
+              </li>
+          </ul>
+        
         <p>
           I'm the second in the source order so I'm hidden when the page loads.
           I'm just shown if a link that references my id is beeing clicked.

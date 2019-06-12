@@ -8,7 +8,7 @@ $("*").on("pagecreate", function(event) {
       var element =
         '<li id="div' +
         item.id +
-        '"><a href="#">' +
+        '"><a href="#questions_page">' +
         item.id +
         ". " +
         item.caption +
@@ -22,10 +22,14 @@ $("*").on("pagecreate", function(event) {
 
     // Обработка нажатия на раздел.
     $("#divsList li").click(function() {
+      //console.log(this.id);
       var divId = this.id.replace("div", "");
-      console.log(divId);
+      //console.log(divId);
       var index = Number.parseInt(divId) - 1;
       console.log(itemList[index]);
+
+      // Перерисовываем список вопросов текущего раздела.
+
     });
   });
 });
