@@ -40,13 +40,7 @@ function divisions_page_create(event) {
       jQuery.data(document.body, "current_division_index", index);
     });
     
-    // Обработка нажатия на раздел.
-    $("#questionsList li").click(function() {
-      var quesId = this.id.replace("ques", "");
-      alret(this);
-      var index = Number.parseInt(quesId) - 1;
-      jQuery.data(document.body, "current_question_index", index);
-    });
+    
     
   });
 }
@@ -86,6 +80,14 @@ function questions_page_show(event) {
       questionsList.append(element);
     });
     questionsList.listview("refresh");
+    
+    // Обработка нажатия на вопрос.
+    $("#questionsList li").click(function() {
+      var quesId = this.id.replace("ques", "");
+      alret(this);
+      var index = Number.parseInt(quesId) - 1;
+      jQuery.data(document.body, "current_question_index", index);
+    });
     
     
     
