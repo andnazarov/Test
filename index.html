@@ -4,7 +4,8 @@
     <title>Тест</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="noindex,nofollow" />
+
     <link
       rel="stylesheet"
       href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"
@@ -37,17 +38,14 @@
 
     <!-- Start of second page -->
     <div data-role="page" id="questions_page">
-      <div id = "questions_page_header" data-role="header">
+      <div id="questions_page_header" data-role="header">
         <h1>Раздел</h1>
       </div>
       <!-- /header -->
 
       <div role="main" class="ui-content">
-        
-        <ul data-role="listview" data-inset="true" id="questionsList">
+        <ul data-role="listview" data-inset="true" id="questionsList"></ul>
 
-        </ul>
-        
         <p><a href="#divisions_page">Вернуться в разделы</a></p>
       </div>
       <!-- /content -->
@@ -59,32 +57,32 @@
     </div>
     <!-- /page -->
 
-      <!-- Начало третьей страницы -->
+    <!-- Начало третьей страницы -->
     <div data-role="page" id="question_page">
-        <div id = "question_page_header" data-role="header">
-          <h1>Вопрос</h1>
-        </div>
-        <!-- /header -->
-  
-        <div role="main" class="ui-content">
-          
-         
-          <div class="ui-grid-a" style="width: 20%">
-            <div class="ui-block-a">
-            <div class="ui-bar ui-bar-a" style="height:60px">Block A</div>
-          </div>
-          <div class="ui-block-b">
-            <div class="ui-bar ui-bar-a" style="height:60px">Block B</div>
-            </div>
-          </div><!-- /grid-a -->
-        </div>
-        <!-- /content -->
-  
-        <div data-role="footer">
-          <h4>Футер страницы</h4>
-        </div>
-        <!-- /footer -->
+      <div id="question_page_header" data-role="header">
+        <h1>Вопрос</h1>
+      </div>
+      <!-- /header -->
 
+      <div role="main" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all">
+          <h3>Название вопроса</h3>
+          <p>
+            Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст
+            вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса
+            Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст
+            вопроса
+          </p>
+        </div>
+
+        <ul data-role="listview" data-inset="true" id="answersList"></ul>
+      </div>
+      <!-- /content -->
+
+      <div data-role="footer">
+        <h4>Футер страницы</h4>
+      </div>
+      <!-- /footer -->
     </div>
     <!-- /page -->
   </body>

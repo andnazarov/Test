@@ -32,6 +32,8 @@ function divisions_page_create(event) {
 
     divsList.listview("refresh");
 
+    $("#divsList li a").attr('style', 'white-space: normal;');
+
     // Обработка нажатия на раздел.
     $("#divsList li").click(function() {
       var divId = this.id.replace("div", "");
@@ -67,7 +69,7 @@ function questions_page_show(event) {
     questionsList.empty();
     division.questions.forEach(function(item, i, itemList) {
       var element =
-        '<li class="wrap" id="ques' +
+        '<li id="ques' +
         i.toString() +
         '"><a href="#question_page"><p>' +
         item.number +
@@ -76,9 +78,10 @@ function questions_page_show(event) {
         '</p></a></li>';
       questionsList.append(element);
     });
+    
     questionsList.listview("refresh");
 
-    console.log($("#questionsList li a p"));
+    $("#questionsList li a p").attr('style', 'white-space: normal;');
     
     // Обработка нажатия на вопрос.
     $("#questionsList li").click(function() {
@@ -95,8 +98,41 @@ function questions_page_show(event) {
 
 function question_page_show(event) {
     $("#question_page").on("pagebeforeshow", function(event) {
-    
-    
+      
+      var current_division_index = jQuery.data(
+        document.body,
+        "current_division_index"
+      );
+      var current_division_index_string = (current_division_index + 1).toString();
+
+      var current_question_index = jQuery.data(
+        document.body,
+        "current_question_index"
+      );
+      var current_question_index_string = (current_question_index + 1).toString();
+      
+      var itemList = jQuery.data(document.body, "data");
+      var question = itemList[current_division_index].questions[current_question_index];
+      var answers = question.answers;
+
+      var answersList = $("#answersList");
+      answersList.empty();
+
+      answers.forEach(function(item, i, itemList) {
+        var element =
+        '<li id="ans' +
+        i.toString() +
+        '"><a href="#"><p>' +
+        item.number +
+        '. ' +
+        item.text +
+        '</p></a></li>';
+        answersList.append(element);
+      });
+
+      answersList.listview("refresh");
+
+      $("#answersList li a p").attr('style', 'white-space: normal;');
     
     });
 
