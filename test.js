@@ -71,9 +71,9 @@ function questions_page_show(event) {
         item.i.toString() +
         '"><a href="#question_page"><p>' +
         item.number +
-        ". " +
+        '. ' +
         item.caption +
-        "</p></a></li>";
+        '</p></a></li>';
       questionsList.append(element);
     });
     questionsList.listview("refresh");
