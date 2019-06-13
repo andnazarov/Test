@@ -14,7 +14,6 @@ function divisions_page_create(event) {
     jQuery.data(document.body, "data", datajson);
 
     var itemList = datajson;
-    console.log(datajson);
     var divsList = $("#divsList");
 
     itemList.forEach(function(item, i, itemList) {
@@ -38,14 +37,6 @@ function divisions_page_create(event) {
       var divId = this.id.replace("div", "");
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
-    });
-    
-    // Обработка нажатия на вопрос.
-    $("#questionsList li").click(function() {
-      var quesId = this.id.replace("ques", "");
-      alret(this);
-      var index = Number.parseInt(quesId) - 1;
-      jQuery.data(document.body, "current_question_index", index);
     });
     
   });
@@ -76,8 +67,8 @@ function questions_page_show(event) {
     questionsList.empty();
     division.questions.forEach(function(item, i, itemList) {
       var element =
-        '<li id="ques' +
-        item.number +
+        '<li class="wrap" id="ques' +
+        i.toString() +
         '"><a href="#question_page"><p>' +
         item.number +
         '. ' +
@@ -86,11 +77,12 @@ function questions_page_show(event) {
       questionsList.append(element);
     });
     questionsList.listview("refresh");
+
+    console.log($("#questionsList li a p"));
     
     // Обработка нажатия на вопрос.
     $("#questionsList li").click(function() {
       var quesId = this.id.replace("ques", "");
-      alret(this);
       var index = Number.parseInt(quesId) - 1;
       jQuery.data(document.body, "current_question_index", index);
     });
