@@ -68,7 +68,7 @@ function questions_page_show(event) {
     division.questions.forEach(function(item, i, itemList) {
       var element =
         '<li id="ques' +
-        item.number +
+        item.i.toString() +
         '"><a href="#question_page"><p>' +
         item.number +
         ". " +
@@ -77,6 +77,15 @@ function questions_page_show(event) {
       questionsList.append(element);
     });
     questionsList.listview("refresh");
+    
+    // Обработка нажатия на раздел.
+    $("#questionsList li").click(function() {
+      var quesId = this.id.replace("ques", "");
+      var index = Number.parseInt(quesId) - 1;
+      jQuery.data(document.body, "current_question_index", index);
+    });
+    
+    
   });
 }
 
