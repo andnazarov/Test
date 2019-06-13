@@ -68,7 +68,7 @@ function questions_page_show(event) {
     division.questions.forEach(function(item, i, itemList) {
       var element =
         '<li id="ques' +
-        item.i.toString() +
+        item.number +
         '"><a href="#question_page"><p>' +
         item.number +
         '. ' +
