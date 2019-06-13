@@ -3,6 +3,8 @@ $("*").on("pagecreate", function(event) {
     divisions_page_create(event);
   } else if (event.target.attributes.id.value === "questions_page") {
     questions_page_show(event);
+  } else if (event.target.attributes.id.value === "question_page") {
+    question_page_show(event);
   }
 });
 
@@ -67,7 +69,7 @@ function questions_page_show(event) {
       var element =
         '<li style="white-space : normal" id="ques' +
         item.number +
-        '"><a href="#"><p class="ui-li-desc">' +
+        '"><a href="#question_page"><p class="ui-li-desc">' +
         item.number +
         ". " +
         item.caption +
@@ -76,4 +78,13 @@ function questions_page_show(event) {
     });
     questionsList.listview("refresh");
   });
+}
+
+function question_page_show(event) {
+    $("#question_page").on("pagebeforeshow", function(event) {
+    
+    
+    
+    });
+
 }
