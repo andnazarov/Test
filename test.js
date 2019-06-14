@@ -129,7 +129,7 @@ function question_page_show(event) {
         var element =
         '<li id="ans' +
         i.toString() +
-        '"><a href="#answer_page"><p>' +
+        '"><a href="#answer_page" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"><p>' +
         item.number +
         '. ' +
         item.text +
