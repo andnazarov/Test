@@ -111,10 +111,6 @@ function question_page_show(event) {
       );
       var current_question_index_string = (current_question_index + 1).toString();
       
-      var questionName = $("#question_name");
-      questionName.text('Вопрос ' + question.number);
-      
-      
       var itemList = jQuery.data(document.body, "data");
       var question = itemList[current_division_index].questions[current_question_index];
       var answers = question.answers;
