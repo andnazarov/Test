@@ -118,15 +118,15 @@ function question_page_show(event) {
       /*var questionName = $("#question_name");
       questionName.html('Вопрос ' + question.number);*/
       
-      var questionDescHeader = $("#question_desc h3");
+      var questionDescHeader = $("#question_name");
       questionDescHeader.html('Вопрос ' + question.number);
       
-      var questionDescP = $("#question_desc p");
-      questionDescP.html(question.text);
+      var questionDescP = $("question_text");
+      questionDescP.html(question.caption);
       
-      alert(question.text);
+      //alert(question.text);
       
-      $("#question_text").html("question.text");
+      //$("#question_text").html("question.text");
       
       
       var answersList = $("#answersList");
