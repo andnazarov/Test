@@ -119,10 +119,10 @@ function question_page_show(event) {
       questionName.html('Вопрос ' + question.number);*/
       
       var questionDescHeader = $("#question_desc h3");
-      questionDescHeader.text('Вопрос ' + question.number);
+      questionDescHeader.html('Вопрос ' + question.number);
       
       var questionDescP = $("#question_desc p");
-      questionDescP.text(question.text);
+      questionDescP.html(question.text);
       
       
       var answersList = $("#answersList");
