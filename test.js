@@ -117,7 +117,10 @@ function question_page_show(event) {
       
       var questionName = $("#question_name");
       questionName.html('Вопрос ' + question.number);
-
+      
+      var questionDesc = $("#question_desc h3");
+      questionDesc.html('Вопрос ' + question.number);
+      
       var answersList = $("#answersList");
       answersList.empty();
 
