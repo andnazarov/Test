@@ -115,18 +115,11 @@ function question_page_show(event) {
       var question = itemList[current_division_index].questions[current_question_index];
       var answers = question.answers;
       
-      /*var questionName = $("#question_name");
-      questionName.html('Вопрос ' + question.number);*/
-      
       var questionDescHeader = $("#question_name");
       questionDescHeader.html('Вопрос ' + question.number);
       
       var questionDescP = $("#question_text");
       questionDescP.html(question.caption);
-      
-      //alert(question.text);
-      
-      //$("#question_text").html("question.text");
       
       
       var answersList = $("#answersList");
