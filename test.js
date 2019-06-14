@@ -115,6 +115,9 @@ function question_page_show(event) {
       var question = itemList[current_division_index].questions[current_question_index];
       var answers = question.answers;
       
+      
+      var questionh1 = $("questionh1").html('Вопрос ' + question.number);
+      
       var questionDescHeader = $("#question_name");
       questionDescHeader.html('Вопрос ' + question.number);
       
