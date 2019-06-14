@@ -1,3 +1,15 @@
+$(document).on("mobileinit", function() {
+  $.get("divisions.json", function(datajson) {
+    // Помещаем объект для дальнейшего использования.
+    jQuery.data(document.body, "data", datajson);
+    //$.mobile.loading( "hide" );
+  });
+});
+
+$(document).on("pagecreate", function(event) {
+  alert(event);
+});
+
 $("*").on("pagecreate", function(event) {
   if (event.target.attributes.id.value === "divisions_page") {
     divisions_page_create(event);
@@ -9,11 +21,9 @@ $("*").on("pagecreate", function(event) {
 });
 
 function divisions_page_create(event) {
-  $.get("divisions.json", function(datajson) {
-    // Помещаем объект для дальнейшего использования.
-    jQuery.data(document.body, "data", datajson);
+  //$.get("divisions.json", function(datajson) {
 
-    var itemList = datajson;
+    var itemList =  jQuery.data(document.body, "data");
     var divsList = $("#divsList");
 
     itemList.forEach(function(item, i, itemList) {
@@ -32,7 +42,7 @@ function divisions_page_create(event) {
 
     divsList.listview("refresh");
 
-    $("#divsList li a").attr('style', 'white-space: normal;');
+    $("#divsList li a").attr("style", "white-space: normal;");
 
     // Обработка нажатия на раздел.
     $("#divsList li").click(function() {
@@ -40,8 +50,7 @@ function divisions_page_create(event) {
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
     });
-    
-  });
+  //});
 }
 
 // Вызывается перед показом формы списка вопросов.
@@ -73,86 +82,76 @@ function questions_page_show(event) {
         i.toString() +
         '"><a href="#question_page"><p>' +
         item.number +
-        '. ' +
+        ". " +
         item.caption +
-        '</p></a></li>';
+        "</p></a></li>";
       questionsList.append(element);
     });
-    
+
     questionsList.listview("refresh");
 
-    $("#questionsList li a p").attr('style', 'white-space: normal;');
-    
+    $("#questionsList li a p").attr("style", "white-space: normal;");
+
     // Обработка нажатия на вопрос.
     $("#questionsList li").click(function() {
       var quesId = this.id.replace("ques", "");
       var index = Number.parseInt(quesId) - 1;
       jQuery.data(document.body, "current_question_index", index);
     });
-    
-    
-    
-    
   });
 }
 
 function question_page_show(event) {
-    $("#question_page").on("pagebeforeshow", function(event) {
-      
-      var current_division_index = jQuery.data(
-        document.body,
-        "current_division_index"
-      );
-      var current_division_index_string = (current_division_index + 1).toString();
+  $("#question_page").on("pagebeforeshow", function(event) {
+    var current_division_index = jQuery.data(
+      document.body,
+      "current_division_index"
+    );
+    var current_division_index_string = (current_division_index + 1).toString();
 
-      var current_question_index = jQuery.data(
-        document.body,
-        "current_question_index"
-      );
-      var current_question_index_string = (current_question_index + 1).toString();
-      
-      var itemList = jQuery.data(document.body, "data");
-      var question = itemList[current_division_index].questions[current_question_index];
-      var answers = question.answers;
-      
-      
-      var questionh1 = $("#questionh1").html('Вопрос ' + question.number);
-      
-      var questionDescHeader = $("#question_name");
-      questionDescHeader.html('Вопрос ' + question.number);
-      
-      var questionDescP = $("#question_text");
-      questionDescP.html(question.caption);
-      
-      
-      var answersList = $("#answersList");
-      answersList.empty();
+    var current_question_index = jQuery.data(
+      document.body,
+      "current_question_index"
+    );
+    var current_question_index_string = (current_question_index + 1).toString();
 
-      answers.forEach(function(item, i, itemList) {
-        var element =
+    var itemList = jQuery.data(document.body, "data");
+    var question =
+      itemList[current_division_index].questions[current_question_index];
+    var answers = question.answers;
+
+    var questionh1 = $("#questionh1").html("Вопрос " + question.number);
+
+    var questionDescHeader = $("#question_name");
+    questionDescHeader.html("Вопрос " + question.number);
+
+    var questionDescP = $("#question_text");
+    questionDescP.html(question.caption);
+
+    var answersList = $("#answersList");
+    answersList.empty();
+
+    answers.forEach(function(item, i, itemList) {
+      var element =
         '<li id="ans' +
         i.toString() +
-        '"><a href="#answer_page" data-transition="pop"><p>' +
+        '"><a href="#answer_page" data-transition="flip"><p>' +
         item.number +
-        '. ' +
+        ". " +
         item.text +
-        '</p></a></li>';
-        answersList.append(element);
-      });
-
-      answersList.listview("refresh");
-
-      $("#answersList li a p").attr('style', 'white-space: normal;');
-    
-      // Обработка нажатия на ответ.
-      $("#answesList li").click(function() {
-        var ansId = this.id.replace("ans", "");
-        var index = Number.parseInt(ansId) - 1;
-        jQuery.data(document.body, "current_answer_index", index);
-      });
-    
+        "</p></a></li>";
+      answersList.append(element);
     });
-    
-    
 
+    answersList.listview("refresh");
+
+    $("#answersList li a p").attr("style", "white-space: normal;");
+
+    // Обработка нажатия на ответ.
+    $("#answesList li").click(function() {
+      var ansId = this.id.replace("ans", "");
+      var index = Number.parseInt(ansId) - 1;
+      jQuery.data(document.body, "current_answer_index", index);
+    });
+  });
 }
