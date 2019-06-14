@@ -116,7 +116,7 @@ function question_page_show(event) {
       var answers = question.answers;
       
       var questionName = $("#question_name");
-      questionName.text('Вопрос ' + question.number);
+      questionName.html('Вопрос ' + question.number);
 
       var answersList = $("#answersList");
       answersList.empty();
