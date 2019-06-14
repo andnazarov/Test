@@ -141,6 +141,15 @@ function question_page_show(event) {
 
       $("#answersList li a p").attr('style', 'white-space: normal;');
     
+      // Обработка нажатия на ответ.
+      $("#answesList li").click(function() {
+        var ansId = this.id.replace("ans", "");
+        var index = Number.parseInt(ansId) - 1;
+        jQuery.data(document.body, "current_answer_index", index);
+      });
+    
     });
+    
+    
 
 }
