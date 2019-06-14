@@ -121,7 +121,7 @@ function question_page_show(event) {
       var questionDescHeader = $("#question_name");
       questionDescHeader.html('Вопрос ' + question.number);
       
-      var questionDescP = $("question_text");
+      var questionDescP = $("#question_text");
       questionDescP.html(question.caption);
       
       //alert(question.text);
