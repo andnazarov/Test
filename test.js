@@ -118,8 +118,12 @@ function question_page_show(event) {
       var questionName = $("#question_name");
       questionName.html('Вопрос ' + question.number);
       
-      var questionDesc = $("#question_desc h3");
-      questionDesc.html('Вопрос ' + question.number);
+      var questionDescHeader = $("#question_desc h3");
+      questionDescHeader.text('Вопрос ' + question.number);
+      
+      var questionDescP = $("#question_desc p");
+      questionDescP.text(question.text);
+      
       
       var answersList = $("#answersList");
       answersList.empty();
