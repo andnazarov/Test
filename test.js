@@ -124,7 +124,7 @@ function question_page_show(event) {
       var questionDescP = $("#question_desc p");
       questionDescP.html(question.text);
       
-      $("#question_text p").html("question.text");
+      $("#question_text").html("question.text");
       
       
       var answersList = $("#answersList");
