@@ -99,13 +99,11 @@ function question_page_show(event) {
       document.body,
       "current_division_index"
     );
-    var current_division_index_string = (current_division_index + 1).toString();
 
     var current_question_index = jQuery.data(
       document.body,
       "current_question_index"
     );
-    var current_question_index_string = (current_question_index + 1).toString();
 
     var itemList = jQuery.data(document.body, "data");
     var question =
