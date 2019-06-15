@@ -40,7 +40,6 @@ function divisions_page_create(event) {
       var divId = this.id.replace("div", "");
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
-      //$.cookie('current_division_index', 'YES');
     });
   });
 }
