@@ -144,7 +144,7 @@ function question_page_show(event) {
       jQuery.data(
         document.body,
         "current_answer_correct",
-        (question.correctIndex === ansId)
+        question.correctIndex === ansId
       );
     });
   });
@@ -184,15 +184,58 @@ function answer_page_show(event) {
 
     if (current_answer_correct === true) {
       answer_head.html("Правильно!");
-      answer_head.attr("style", "font-color: #339933;");
+      // Если ответ правильный, то кнопку "Повторить вопрос" надо спрятать, а следующий вопрос - показать
+      $("#next_question").show().trigger( "updatelayout" );
+      $("#repeat_question").hide().trigger( "updatelayout" );
     } else {
       answer_head.html("Не правильно!");
-      answer_head.attr("style", "font-color: #993333;");
+      $("#next_question").hide().trigger( "updatelayout" );
+      $("#repeat_question").show().trigger( "updatelayout" );
     }
+    $("#question_text_answer").html(question.number + ". " + question.caption);
+    $("#answer_text").html(
+      answers[current_answer_index].number +
+        ". " +
+        answers[current_answer_index].text
+    );
 
-    $("#answer_text").html(answers[current_answer_index].number + '. ' + answers[current_answer_index].text);
+    
     
 
-
+    $("#next_question").click(function() {
+      if (
+        current_division_index === itemList.length - 1 &&
+        current_question_index ===
+          itemList[current_division_index].questions.length - 1
+      ) {
+        // Это конец. Нужно потом как-то это обработать.
+        alert("Конец!");
+      } else if (
+        current_question_index ===
+        itemList[current_division_index].questions.length - 1
+      ) {
+        // Нужно перейти в другой раздел.
+        current_question_index = 0;
+        current_division_index = current_division_index + 1;
+        jQuery.data(
+          document.body,
+          "current_division_index",
+          current_division_index
+        );
+        jQuery.data(
+          document.body,
+          "current_question_index",
+          current_question_index
+        );
+      } else {
+        // Не нужно переходить в другой раздел.
+        current_question_index = current_question_index + 1;
+        jQuery.data(
+          document.body,
+          "current_question_index",
+          current_question_index
+        );
+      }
+    });
   });
 }

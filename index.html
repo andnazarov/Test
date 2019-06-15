@@ -45,8 +45,13 @@
 
       <div role="main" class="ui-content">
         <ul data-role="listview" data-inset="true" id="questionsList"></ul>
-
-        <p><a href="#divisions_page">Вернуться в разделы</a></p>
+        <p></p>
+        <p></p>
+        <a
+          href="#divisions_page"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home"
+          >К разделам</a
+        >
       </div>
       <!-- /content -->
 
@@ -76,6 +81,18 @@
         </div>
 
         <ul data-role="listview" data-inset="true" id="answersList"></ul>
+        <p></p>
+        <p></p>
+        <a
+          href="#questions_page"
+          class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-btn-icon-left ui-icon-bullets"
+          >К вопросам!</a
+        >
+        <a
+          href="#divisions_page"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home"
+          >К разделам</a
+        >
       </div>
       <!-- /content -->
 
@@ -94,8 +111,16 @@
       <!-- /header -->
 
       <div role="main" class="ui-content">
-        <div class="ui-body ui-body-a ui-corner-all">
+        <div class="ui-body ui-body-a ui-corner-all" id="answer_content">
           <h3 id="answer_head">(Не)правильно!</h3>
+          <h5>На вопрос:</h5>
+          <p id="question_text_answer">
+            Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст
+            вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса
+            Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст
+            вопроса
+          </p>
+          <h5>Вы ответили:</h5>
           <p id="answer_text">
             Текст результата Текст результата Текст результата Текст результата
             Текст результата Текст результата Текст результата Текст результата
@@ -106,10 +131,28 @@
 
         <ul data-role="listview" data-inset="true" id="answersList"></ul>
 
-        <a href="#question_page" class="ui-btn  ui-btn-b ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-r">Следующий вопрос</a>
-        <a href="#question_page" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back">Повторить вопрос</a>
-        <a href="#questions_page" class="ui-btn ui-btn-b ui-shadow-icon ui-shadow ui-corner-all ui-btn-icon-left ui-icon-bullets">К вопросам!</a>
-        <a href="#divisions_page" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home">К разделам</a>
+        <a
+          href="#question_page"
+          class="ui-btn  ui-btn-b ui-shadow ui-corner-all ui-btn-icon-left ui-icon-carat-r"
+          id="next_question"
+          >Следующий вопрос</a
+        >
+        <a
+          href="#question_page"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-back"
+          id="repeat_question"
+          >Повторить вопрос</a
+        >
+        <a
+          href="#questions_page"
+          class="ui-btn ui-btn-b ui-shadow ui-corner-all ui-btn-icon-left ui-icon-bullets"
+          >К вопросам!</a
+        >
+        <a
+          href="#divisions_page"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-home"
+          >К разделам</a
+        >
       </div>
       <!-- /content -->
 
