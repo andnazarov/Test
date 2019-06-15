@@ -1,15 +1,3 @@
-$(document).on("mobileinit", function() {
-  $.get("divisions.json", function(datajson) {
-    // Помещаем объект для дальнейшего использования.
-    jQuery.data(document.body, "data", datajson);
-    //$.mobile.loading( "hide" );
-  });
-});
-
-$(document).on("pagecreate", function(event) {
-  alert(event);
-});
-
 $("*").on("pagecreate", function(event) {
   if (event.target.attributes.id.value === "divisions_page") {
     divisions_page_create(event);
@@ -21,7 +9,9 @@ $("*").on("pagecreate", function(event) {
 });
 
 function divisions_page_create(event) {
-  //$.get("divisions.json", function(datajson) {
+  $.get("divisions.json", function(itemList) {
+
+    jQuery.data(document.body, "data", itemList);
 
     var itemList =  jQuery.data(document.body, "data");
     var divsList = $("#divsList");
@@ -50,7 +40,7 @@ function divisions_page_create(event) {
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
     });
-  //});
+  });
 }
 
 // Вызывается перед показом формы списка вопросов.
