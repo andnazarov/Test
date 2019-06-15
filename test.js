@@ -5,15 +5,16 @@ $("*").on("pagecreate", function(event) {
     questions_page_show(event);
   } else if (event.target.attributes.id.value === "question_page") {
     question_page_show(event);
+  } else if (event.target.attributes.id.value === "answer_page") {
+    answer_page_show(event);
   }
 });
 
 function divisions_page_create(event) {
   $.get("divisions.json", function(itemList) {
-
     jQuery.data(document.body, "data", itemList);
 
-    var itemList =  jQuery.data(document.body, "data");
+    var itemList = jQuery.data(document.body, "data");
     var divsList = $("#divsList");
 
     itemList.forEach(function(item, i, itemList) {
@@ -39,6 +40,7 @@ function divisions_page_create(event) {
       var divId = this.id.replace("div", "");
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
+      //$.cookie('current_division_index', 'YES');
     });
   });
 }
@@ -85,7 +87,7 @@ function questions_page_show(event) {
     // Обработка нажатия на вопрос.
     $("#questionsList li").click(function() {
       var quesId = this.id.replace("ques", "");
-      var index = Number.parseInt(quesId) - 1;
+      var index = Number.parseInt(quesId);
       jQuery.data(document.body, "current_question_index", index);
     });
   });
@@ -110,10 +112,7 @@ function question_page_show(event) {
       itemList[current_division_index].questions[current_question_index];
     var answers = question.answers;
 
-    var questionh1 = $("#questionh1").html("Вопрос " + question.number);
-
-    var questionDescHeader = $("#question_name");
-    questionDescHeader.html("Вопрос " + question.number);
+    $("#questionh1").html("Вопрос " + question.number);
 
     var questionDescP = $("#question_text");
     questionDescP.html(question.caption);
@@ -140,8 +139,44 @@ function question_page_show(event) {
     // Обработка нажатия на ответ.
     $("#answesList li").click(function() {
       var ansId = this.id.replace("ans", "");
-      var index = Number.parseInt(ansId) - 1;
+      var index = Number.parseInt(ansId);
       jQuery.data(document.body, "current_answer_index", index);
+      jQuery.data(
+        document.body,
+        "current_answer_correct",
+        question.corectIndex === true
+      );
     });
+  });
+}
+
+function answer_page_show(event) {
+  $("#answer_page").on("pagebeforeshow", function(event) {
+    var current_division_index = jQuery.data(
+      document.body,
+      "current_division_index"
+    );
+
+    var current_question_index = jQuery.data(
+      document.body,
+      "current_question_index"
+    );
+
+    var itemList = jQuery.data(document.body, "data");
+    var question =
+      itemList[current_division_index].questions[current_question_index];
+    var answers = question.answers;
+
+    var current_answer_index = jQuery.data(
+      document.body,
+      "current_answer_index"
+    );
+
+    var current_answer_correct = jQuery.data(
+      document.body,
+      "current_answer_correct"
+    );
+
+    $("#answerh1").html("Ответ на " + question.number);
   });
 }
