@@ -137,14 +137,14 @@ function question_page_show(event) {
     $("#answersList li a p").attr("style", "white-space: normal;");
 
     // Обработка нажатия на ответ.
-    $("#answesList li").click(function() {
+    $("#answersList li").click(function() {
       var ansId = this.id.replace("ans", "");
       var index = Number.parseInt(ansId);
       jQuery.data(document.body, "current_answer_index", index);
       jQuery.data(
         document.body,
         "current_answer_correct",
-        question.corectIndex === true
+        (question.correctIndex === ansId)
       );
     });
   });
@@ -166,6 +166,7 @@ function answer_page_show(event) {
     var question =
       itemList[current_division_index].questions[current_question_index];
     var answers = question.answers;
+    var answer = answers[current_answer_index];
 
     var current_answer_index = jQuery.data(
       document.body,
@@ -178,5 +179,20 @@ function answer_page_show(event) {
     );
 
     $("#answerh1").html("Ответ на " + question.number);
+
+    answer_head = $("#answer_head");
+
+    if (current_answer_correct === true) {
+      answer_head.html("Правильно!");
+      answer_head.attr("style", "font-color: #339933;");
+    } else {
+      answer_head.html("Не правильно!");
+      answer_head.attr("style", "font-color: #993333;");
+    }
+
+    $("#answer_text").html(answers[current_answer_index].number + '. ' + answers[current_answer_index].text);
+    
+
+
   });
 }
