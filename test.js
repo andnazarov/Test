@@ -52,6 +52,10 @@ function questions_page_show(event) {
       "current_division_index"
     );
 
+    if (current_division_index === undefined) {
+      return;
+    }
+
     // Установка заголовка формы.
     var current_division_index_string = (current_division_index + 1).toString();
     var questions_page_header = $("#questions_page_header");
@@ -98,6 +102,10 @@ function question_page_show(event) {
       document.body,
       "current_division_index"
     );
+
+    if (current_division_index === undefined) {
+      return;
+    }
 
     var current_question_index = jQuery.data(
       document.body,
@@ -154,6 +162,16 @@ function answer_page_show(event) {
       "current_division_index"
     );
 
+    if (current_division_index === undefined) {
+      $("#repeat_question")
+        .hide()
+        .trigger("updatelayout");
+      $("#next_question")
+        .hide()
+        .trigger("updatelayout");
+      return;
+    }
+
     var current_question_index = jQuery.data(
       document.body,
       "current_question_index"
@@ -182,12 +200,20 @@ function answer_page_show(event) {
     if (current_answer_correct === true) {
       answer_head.html("Правильно!");
       // Если ответ правильный, то кнопку "Повторить вопрос" надо спрятать, а следующий вопрос - показать
-      $("#next_question").show().trigger( "updatelayout" );
-      $("#repeat_question").hide().trigger( "updatelayout" );
+      $("#next_question")
+        .show()
+        .trigger("updatelayout");
+      $("#repeat_question")
+        .hide()
+        .trigger("updatelayout");
     } else {
       answer_head.html("Не правильно!");
-      $("#next_question").hide().trigger( "updatelayout" );
-      $("#repeat_question").show().trigger( "updatelayout" );
+      $("#next_question")
+        .hide()
+        .trigger("updatelayout");
+      $("#repeat_question")
+        .show()
+        .trigger("updatelayout");
     }
     $("#question_text_answer").html(question.number + ". " + question.caption);
     $("#answer_text").html(
@@ -195,9 +221,6 @@ function answer_page_show(event) {
         ". " +
         answers[current_answer_index].text
     );
-
-    
-    
 
     $("#next_question").click(function() {
       if (
