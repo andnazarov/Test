@@ -37,9 +37,20 @@ function divisions_page_create(event) {
 
     // Обработка нажатия на раздел.
     $("#divsList li").click(function() {
+      jQuery.data(document.body, "isExamMode", false);
       var divId = this.id.replace("div", "");
       var index = Number.parseInt(divId) - 1;
       jQuery.data(document.body, "current_division_index", index);
+    });
+
+    // Обработка нажатия на кнопку Экзамен.
+    $("#startExam").click(function() {
+      jQuery.data(document.body, "isExamMode", true);
+
+      index = 0;
+      jQuery.data(document.body, "current_division_index", index);
+      var exam_mistakes_counter = {questions_count: 0, mistakes_count: 0};
+      jQuery.data(document.body, "exam_mistakes_counter", exam_mistakes_counter);
     });
   });
 }
@@ -98,6 +109,8 @@ function questions_page_show(event) {
 
 function question_page_show(event) {
   $("#question_page").on("pagebeforeshow", function(event) {
+    var isExamMode = jQuery.data(document.body, "isExamMode");
+
     var current_division_index = jQuery.data(
       document.body,
       "current_division_index"
@@ -107,12 +120,31 @@ function question_page_show(event) {
       return;
     }
 
-    var current_question_index = jQuery.data(
-      document.body,
-      "current_question_index"
-    );
-
     var itemList = jQuery.data(document.body, "data");
+
+    if (isExamMode === true) {
+      var current_question_index = getRandomArbitary(
+        0,
+        itemList[current_division_index].questions.length - 1
+      );
+      jQuery.data(
+        document.body,
+        "current_question_index",
+        current_question_index
+      );
+      $("#return_to_questions")
+        .hide()
+        .trigger("updatelayout");
+    } else {
+      var current_question_index = jQuery.data(
+        document.body,
+        "current_question_index"
+      );
+      $("#return_to_questions")
+        .show()
+        .trigger("updatelayout");
+    }
+
     var question =
       itemList[current_division_index].questions[current_question_index];
     var answers = question.answers;
@@ -172,12 +204,15 @@ function answer_page_show(event) {
       return;
     }
 
+    var isExamMode = jQuery.data(document.body, "isExamMode");
+
+    var itemList = jQuery.data(document.body, "data");
+
     var current_question_index = jQuery.data(
       document.body,
       "current_question_index"
     );
 
-    var itemList = jQuery.data(document.body, "data");
     var question =
       itemList[current_division_index].questions[current_question_index];
     var answers = question.answers;
@@ -208,12 +243,27 @@ function answer_page_show(event) {
         .trigger("updatelayout");
     } else {
       answer_head.html("Не правильно!");
-      $("#next_question")
-        .hide()
-        .trigger("updatelayout");
-      $("#repeat_question")
-        .show()
-        .trigger("updatelayout");
+      if (isExamMode === true) {
+        $("#next_question")
+          .show()
+          .trigger("updatelayout");
+        $("#repeat_question")
+          .hide()
+          .trigger("updatelayout");
+        $("#return_to_questions_from_answer")
+          .hide()
+          .trigger("updatelayout");
+      } else {
+        $("#next_question")
+          .hide()
+          .trigger("updatelayout");
+        $("#repeat_question")
+          .show()
+          .trigger("updatelayout");
+        $("#return_to_questions_from_answer")
+          .show()
+          .trigger("updatelayout");
+      }
     }
     $("#question_text_answer").html(question.number + ". " + question.caption);
     $("#answer_text").html(
@@ -223,7 +273,14 @@ function answer_page_show(event) {
     );
 
     $("#next_question").click(function() {
-      if (
+      if (isExamMode === true) {
+        current_division_index = current_division_index + 1;
+        jQuery.data(
+          document.body,
+          "current_division_index",
+          current_division_index
+        );
+      } else if (
         current_division_index === itemList.length - 1 &&
         current_question_index ===
           itemList[current_division_index].questions.length - 1
@@ -258,4 +315,8 @@ function answer_page_show(event) {
       }
     });
   });
+}
+
+function getRandomArbitary(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
 }
