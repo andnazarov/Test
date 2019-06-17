@@ -1,4 +1,4 @@
-$("*").on("pagecreate", function(event) {
+a$("*").on("pagecreate", function(event) {
   if (event.target.attributes.id.value === "divisions_page") {
     divisions_page_create(event);
   } else if (event.target.attributes.id.value === "questions_page") {

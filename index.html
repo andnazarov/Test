@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-    <link rel="stylesheet" href="test.css" />
+    <script src="js.cookie.js"></script>
     <script src="test.js"></script>
   </head>
   <body>
@@ -26,6 +26,11 @@
 
       <div role="main" class="ui-content">
         <ul data-role="listview" data-inset="true" id="divsList"></ul>
+        <a
+          href="#problem_questions_page"
+          class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-grid" id="problem_questions"
+          >Проблемные вопросы</a
+        >
         <a
           href="#question_page"
           class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-grid" id="startExam"
@@ -156,8 +161,36 @@
       <div data-role="footer">
         <h4>Конец страницы</h4>
       </div>
-      <!-- /footer -->
+      <!-- /footer -->    
+      
     </div>
     <!-- /page -->
+    
+    
+    <!-- Начало пятой страницы -->
+    <div data-role="page" id="problem_questions_page">
+      <div data-role="header">
+        <h1>Проблемные вопросы</h1>
+      </div>
+      <!-- /header -->
+      
+      
+      <div role="main" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all" >
+        
+        
+        </div>
+      </div>
+      
+      <div data-role="footer">
+        <h4>Конец страницы</h4>
+      </div>
+      <!-- /footer -->    
+      
+    </div>
+    <!-- /page -->
+    
+    
+    
   </body>
 </html>
