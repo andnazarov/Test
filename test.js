@@ -7,6 +7,8 @@ $("*").on("pagecreate", function(event) {
     question_page_show(event);
   } else if (event.target.attributes.id.value === "answer_page") {
     answer_page_show(event);
+  } else if (event.target.attributes.id.value === "problem_questions_page") {
+    problem_questions_page_show(event);
   }
 });
 
@@ -49,8 +51,12 @@ function divisions_page_create(event) {
 
       index = 0;
       jQuery.data(document.body, "current_division_index", index);
-      var exam_mistakes_counter = {questions_count: 0, mistakes_count: 0};
-      jQuery.data(document.body, "exam_mistakes_counter", exam_mistakes_counter);
+      var exam_mistakes_counter = { questions_count: 0, mistakes_count: 0 };
+      jQuery.data(
+        document.body,
+        "exam_mistakes_counter",
+        exam_mistakes_counter
+      );
     });
   });
 }
@@ -264,6 +270,7 @@ function answer_page_show(event) {
           .show()
           .trigger("updatelayout");
       }
+      proplem_question_add({"d" : current_division_index, "q" : current_question_index});
     }
     $("#question_text_answer").html(question.number + ". " + question.caption);
     $("#answer_text").html(
@@ -317,6 +324,62 @@ function answer_page_show(event) {
   });
 }
 
+function problem_questions_page_show(event) {
+  console.log(Cookies.getJSON("problem_questions"));
+}
+
 function getRandomArbitary(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function proplem_question_add(questionData) {
+
+  var problem_questions = Cookies.getJSON("problem_questions");
+  if (problem_questions === undefined) {
+    var problem_questions = [];
+  };
+
+  var question_str = zeroPad(questionData.d, 2) + '.' + zeroPad(questionData.q, 3);
+  problem_questions.push(question_str);
+  problem_questions = unique(problem_questions);
+  problem_questions.sort();
+
+  Cookies.set("problem_questions", problem_questions);
+
+}
+
+function proplem_question_delete(questionData) {
+
+  var problem_questions = Cookies.getJSON("problem_questions");
+  
+  var question_str = zeroPad(questionData.d, 2) + '.' + zeroPad(questionData.q, 3);
+
+  var index = problem_questions.indexOf(question_str);
+  if (index === -1) {
+    return;
+  } else {
+    question_str.delete(index);
+  };
+
+  Cookies.set("problem_questions", problem_questions);
+
+}
+
+function zeroPad(num,count) {
+  var numZeropad = num + '';
+  while(numZeropad.length < count) {
+      numZeropad = "0" + numZeropad;
+  }
+  return numZeropad;
+}
+
+function unique(arr) {
+  var obj = {};
+
+  for (var i = 0; i < arr.length; i++) {
+    var str = arr[i];
+    obj[str] = true; // запомнить строку в виде свойства объекта
+  }
+
+  return Object.keys(obj); // или собрать ключи перебором для IE8-
 }
